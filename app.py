@@ -6,6 +6,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask import Flask
 
+
 # Mapeamento dos meses
 mapping_meses = {
     'janeiro': 0,
