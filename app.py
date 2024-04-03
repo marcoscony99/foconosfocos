@@ -137,8 +137,8 @@ def run():
     data_atual = datetime.now()
     dia_do_mes = data_atual.day
     focos_24h = raspar_dados_bioma(soup, 1, dia_do_mes - 2)
-    acumulado_mes_atual_bioma = raspar_dados_bioma(soup, 1, 31)
-    total_mesmo_mes_ano_passado_bioma = raspar_dados_bioma(soup, 0, 31)
+    acumulado_mes_atual_bioma = raspar_dados_bioma(soup, 1, 30)
+    total_mesmo_mes_ano_passado_bioma = raspar_dados_bioma(soup, 0, 30)
     mes_atual = data_atual.month
 
     # Encontrar o nome do mês correspondente ao número do mês atual
