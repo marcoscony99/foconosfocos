@@ -6,7 +6,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask import Flask
 
-
 # Mapeamento dos meses
 mapping_meses = {
     'janeiro': 0,
@@ -165,6 +164,53 @@ def amazonia():
     # Chama a função run
     return run()
 
+
+# Função para gerar o HTML dinâmico do relatório
+def gerar_relatorio_html():
+    print("Obtendo HTML da primeira URL...")
+    url = 'http://terrabrasilis.dpi.inpe.br/queimadas/situacao-atual/media/bioma/grafico_historico_mes_atual_estado_amazonia.html'
+    soup = obter_html(url)
+    data_atual = datetime.now()
+    dia_do_mes = data_atual.day
+    focos_24h = raspar_dados_bioma(soup, 1, dia_do_mes - 2)
+    acumulado_mes_atual_bioma = raspar_dados_bioma(soup, 1, 30)
+    total_mesmo_mes_ano_passado_bioma = raspar_dados_bioma(soup, 0, 30)
+    mes_atual = data_atual.month
+
+    # Encontrar o nome do mês correspondente ao número do mês atual
+    nome_mes_atual = None
+    for mes, numero in mapping_meses.items():
+        if numero == mes_atual - 1:  # Subtraímos 1 porque os meses em Python vão de 1 a 12
+            nome_mes_atual = mes
+
+    print("Obtendo HTML da segunda URL...")
+    url2 = 'http://terrabrasilis.dpi.inpe.br/queimadas/situacao-atual/media//bioma/grafico_historico_estado_amazonia.html'
+    soup = obter_html(url2)
+
+    print('Executando função de média e recorde mensal')
+    media, recorde = encontrar_media_e_recorde_mensal(soup, nome_mes_atual)
+
+    # Construir o HTML com os resultados dinâmicos
+    html = f"""
+    <html>
+      <body>
+        <h1>Relatório de Focos de Incêndio na Amazônia</h1>
+        <ul>
+          <li><b>24h</b> - {focos_24h} focos</li>
+          <li><b>Acumulado do mês atual</b> - {acumulado_mes_atual_bioma} focos (vs {total_mesmo_mes_ano_passado_bioma} focos totais no mesmo mês do ano passado)</li>
+          <li><b>Média do mês</b> - {media}</li>
+          <li><b>Recorde do mês</b> - {recorde}</li>
+        </ul>
+      </body>
+    </html>
+    """
+    return html
+
+# Rota para acessar o relatório
+@app.route('/relatorio')
+def relatorio():
+    # Chama a função para gerar o HTML do relatório
+    return gerar_relatorio_html()
 
 if __name__ == '__main__':
     app.run(debug=True)
