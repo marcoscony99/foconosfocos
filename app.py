@@ -201,6 +201,12 @@ def gerar_relatorio_html():
           <li><b>Média do mês</b> - {media}</li>
           <li><b>Recorde do mês</b> - {recorde}</li>
         </ul>
+        
+        <!-- Adicionar um formulário com um botão para redirecionar para a rota amazonia -->
+        <form action="/amazonia">
+            <input type="submit" value="Enviar por e-mail">
+        </form>
+        
       </body>
     </html>
     """
