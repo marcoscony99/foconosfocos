@@ -193,36 +193,14 @@ def gerar_relatorio_html():
     # Construir o HTML com os resultados dinâmicos
     html = f"""
     <html>
-      <head>
-        <style>
-          h1 {{
-            color: #8B0000;
-          }}
-          b {{
-            color: #555555;
-          }}
-          .orange {{
-            color: orange;
-          }}
-          .red {{
-            color: red;
-          }}
-        </style>
-      </head>
       <body>
-        <h1>Relatório de focos de incêndio na Amazônia</h1>
+        <h1>Relatório de Focos de Incêndio na Amazônia</h1>
         <ul>
           <li><b>24h</b> - {focos_24h} focos</li>
           <li><b>Acumulado do mês atual</b> - {acumulado_mes_atual_bioma} focos (vs {total_mesmo_mes_ano_passado_bioma} focos totais no mesmo mês do ano passado)</li>
-          <li class="orange"><b>Média do mês</b> - {media}</li>
-          <li class="red"><b>Recorde do mês</b> - {recorde}</li>
+          <li><b>Média do mês</b> - {media}</li>
+          <li><b>Recorde do mês</b> - {recorde}</li>
         </ul>
-        
-        <!-- Adicionar um formulário com um botão para redirecionar para a rota amazonia -->
-        <form action="/amazonia">
-            <input type="submit" value="Enviar por e-mail">
-        </form>
-        
       </body>
     </html>
     """
