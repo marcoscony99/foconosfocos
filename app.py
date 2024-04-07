@@ -4,7 +4,7 @@ from datetime import datetime
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from flask import Flask
+from flask import Flask, render_template
 import os
 from dotenv import load_dotenv
 
@@ -225,3 +225,15 @@ def relatorio():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+@app.route("/")
+def index():
+    return render_template("home.html")
+    
+@app.route("/portfolio")
+def portifolio ():
+    return render_template("portfolio.html")
+
+@app.route("/curriculo")
+def curriculo ():
+    return render_template("curriculo.html")
