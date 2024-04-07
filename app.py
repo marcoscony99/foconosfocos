@@ -84,8 +84,8 @@ def encontrar_media_e_recorde_mensal(soup, mes_solicitado):
 def enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passado_bioma, media, recorde):
     smtp_server = "smtp-relay.brevo.com"
     port = 587
-    email = os.getenv("EMAIL")
-    password = os.getenv("PASSWORD")
+    email = os.environ.get("EMAIL")
+    password = os.environ.get("PASSWORD")
     remetente = "marcoscony@gmail.com"
     destinatarios = ["marcoscony@gmail.com", 'marcos.acony@g.globo']
     titulo = "Teste de email"
