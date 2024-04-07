@@ -5,6 +5,12 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask import Flask
+import os
+from dotenv import load_dotenv
+
+# Carrega as variáveis de ambiente do arquivo .env
+load_dotenv()
+
 
 # Mapeamento dos meses
 mapping_meses = {
@@ -79,8 +85,8 @@ def encontrar_media_e_recorde_mensal(soup, mes_solicitado):
 def enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passado_bioma, media, recorde):
     smtp_server = "smtp-relay.brevo.com"
     port = 587
-    email = "marcoscony@gmail.com"
-    password = "asFUfzSr8EN9R2HD"
+    email = os.getenv("EMAIL")
+    password = os.getenv("PASSWORD")
     remetente = "marcoscony@gmail.com"
     destinatarios = ["marcoscony@gmail.com", 'marcos.acony@g.globo']
     titulo = "Teste de email"
