@@ -159,7 +159,7 @@ def run():
     media, recorde = encontrar_media_e_recorde_mensal(soup, nome_mes_atual)
     print("Enviando email...")
     enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passado_bioma, media, recorde)
-    return "E-mail enviado com sucesso."
+    return "E-mail enviado com sucesso!"
 
 
 app = Flask(__name__)
