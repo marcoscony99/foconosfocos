@@ -211,6 +211,9 @@ def gerar_relatorio_html():
         <form action="/amazonia">
             <input type="submit" value="Enviar por e-mail">
         </form>
+
+        <!-- Adicionar um link para voltar para a rota home -->
+        <a href="/">Voltar para a página inicial</a>
         
       </body>
     </html>
