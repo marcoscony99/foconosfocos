@@ -226,6 +226,8 @@ def relatorio():
 if __name__ == '__main__':
     app.run(debug=True)
 
+#rotas da primeira parte do trabalho
+
 @app.route("/")
 def index():
     return render_template("home.html")
