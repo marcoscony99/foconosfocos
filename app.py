@@ -80,7 +80,7 @@ def encontrar_media_e_recorde_mensal(soup, mes_solicitado):
         # Retornar tanto a média quanto o recorde
         return resultado_media, resultado_recorde
 
-
+#parte do código que vai enviar o e-mail
 def enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passado_bioma, media, recorde):
     smtp_server = "smtp-relay.brevo.com"
     port = 587
@@ -120,7 +120,7 @@ def enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passa
     mensagem = MIMEMultipart("alternative")
     mensagem["From"] = remetente
     mensagem["To"] = ",".join(destinatarios)
-    mensagem["Subject"] = '🔥 FOCOS EM FOCO 🔍'
+    mensagem["Subject"] = '🔎 FOCOS EM FOCO 🔥'
     conteudo_texto = MIMEText(texto, "plain")
     conteudo_html = MIMEText(html, "html")
     mensagem.attach(conteudo_texto)
@@ -166,7 +166,7 @@ app = Flask(__name__)
 
 @app.route('/amazonia')
 def amazonia():
-    # Chama a função run
+    # Chama a função run, que tem como objetivo disparar o e-mail
     return run()
 
 
