@@ -87,7 +87,7 @@ def enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passa
     email = os.environ.get("EMAIL")
     password = os.environ.get("PASSWORD")
     remetente = "marcoscony@gmail.com"
-    destinatarios = ["marcoscony@gmail.com", 'marcos.acony@g.globo']
+    destinatarios = ["marcoscony@gmail.com", 'marcos.acony@g.globo', 'alvarojusten@gmail.com']
     titulo = "Teste de email"
 
     texto = f"""
@@ -120,7 +120,7 @@ def enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passa
     mensagem = MIMEMultipart("alternative")
     mensagem["From"] = remetente
     mensagem["To"] = ",".join(destinatarios)
-    mensagem["Subject"] = '🔎 FOCOS EM FOCO 🔥'
+    mensagem["Subject"] = '🔎 FOCO NOS FOCOS 🔥'
     conteudo_texto = MIMEText(texto, "plain")
     conteudo_html = MIMEText(html, "html")
     mensagem.attach(conteudo_texto)
