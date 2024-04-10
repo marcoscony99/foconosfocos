@@ -87,7 +87,7 @@ def enviar_email(focos_24h, acumulado_mes_atual_bioma, total_mesmo_mes_ano_passa
     email = os.environ.get("EMAIL")
     password = os.environ.get("PASSWORD")
     remetente = "marcoscony@gmail.com"
-    destinatarios = ["marcoscony@gmail.com", 'marcos.acony@g.globo', 'alvarojusten@gmail.com']
+    destinatarios = ["marcoscony@gmail.com", 'marcos.acony@g.globo']
     titulo = "Teste de email"
 
     texto = f"""
