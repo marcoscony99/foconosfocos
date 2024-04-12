@@ -1,6 +1,6 @@
 <h1>Foco nos Focos - Trabalho Final</h1>
 
-Este projeto foi desenvolvido como trabalho final da disciplina "Algoritmos de Automação", ministrada pelo professor Álvaro Justen no Insper, no 1º trimestre de 2024.
+Este projeto foi desenvolvido como trabalho final do 3º trimsestre da pós-gaduação de Jornalismo de dados do Insper, na disciplina de Eduardo Cuducos. Uma versão adaptada do projeto também foi apresentado na disciplina "Algoritmos de Automação",  ministrada pelo professor Álvaro Justen.
 
 <h2>Descrição do Projeto</h2>
 O projeto consiste em duas etapas distintas:
